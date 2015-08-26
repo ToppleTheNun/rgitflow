@@ -1,0 +1,31 @@
+require 'rgitflow/printing'
+require 'git'
+
+module RGitFlow
+  class Install
+    include RGitFlow::Printing
+
+    class << self
+      attr_accessor :instance
+
+      def install_tasks(opts = {})
+        new(opts[:dir]).install
+      end
+    end
+
+    attr_reader :dir, :git
+
+    def initialize(dir = nil)
+      @dir = dir || Pathname.pwd
+      @git = Git.open @dir
+    end
+
+    def install
+      require 'rgitflow/tasks/scm/status'
+      RGitFlow::Tasks::SCM::Status.new @git
+
+      require 'rgitflow/tasks/feature/tasks'
+      RGitFlow::Tasks::Feature.install_tasks({:git => @git})
+    end
+  end
+end
