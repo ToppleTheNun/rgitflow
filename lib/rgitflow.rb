@@ -11,6 +11,11 @@ Dir.glob(File.join(RGitFlow::ROOT, 'rgitflow', 'core_ext', '*.rb')).each do |fil
   require file
 end
 
+# Load Git extension classes
+Dir.glob(File.join(RGitFlow::ROOT, 'rgitflow', 'git_ext', '*.rb')).each do |file|
+  require file
+end
+
 ['autoload'].each do |file|
   require File.join(RGitFlow::ROOT, 'rgitflow', file)
 end
