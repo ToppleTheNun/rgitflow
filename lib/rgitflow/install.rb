@@ -26,6 +26,9 @@ module RGitFlow
 
       require 'rgitflow/tasks/feature/tasks'
       RGitFlow::Tasks::Feature.install_tasks({:git => @git})
+
+      require 'rgitflow/tasks/hotfix/tasks'
+      RGitFlow::Tasks::Hotfix.install_tasks({:git => @git})
     end
   end
 end
