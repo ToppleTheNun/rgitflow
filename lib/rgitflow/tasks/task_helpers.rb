@@ -88,7 +88,9 @@ module RGitFlow
           @git.merge branch
           @git.branch(branch).delete
 
-          @git.push('origin', branch)
+          if @git.is_remote_branch? branch
+            @git.branches.remote[branch].delete
+          end
           @git.push
 
           status "Finished feature branch #{branch}!"
