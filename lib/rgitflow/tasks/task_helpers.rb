@@ -54,12 +54,12 @@ module RGitFlow
 
           branch = RGitFlow::Config.options[:feature] % ENV['BRANCH']
 
-          if @git.branches.local.select { |b| b.name == branch }
+          if @git.branches.local.select { |b| b.name == branch } .size > 0
             error 'Cannot create a branch that already exists locally'
             abort
           end
 
-          if @git.branches.remote.select { |b| b.name == branch }
+          if @git.branches.remote.select { |b| b.name == branch } .size > 0
             error 'Cannot create a branch that already exists remotely'
             abort
           end
@@ -80,7 +80,7 @@ module RGitFlow
 
           branch = RGitFlow::Config.options[:feature] % ENV['BRANCH']
 
-          if @git.branches.local.select { |b| b.name == branch }.length <= 0
+          if @git.branches.local.select { |b| b.name == branch } .length <= 0
             error 'Cannot finish a branch that does not exist locally'
             abort
           end
