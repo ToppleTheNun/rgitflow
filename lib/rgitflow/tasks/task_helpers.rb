@@ -84,7 +84,7 @@ module RGitFlow
             abort
           end
 
-          @git.branch 'master'
+          @git.branch('master').checkout
           @git.merge branch
           @git.branch(branch).delete
 
