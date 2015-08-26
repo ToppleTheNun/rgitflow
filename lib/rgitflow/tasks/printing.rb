@@ -37,7 +37,7 @@ module RGitFlow
       # @return [void]
       def status(message = '')
         if Rake.verbose
-          $stdout.puts "#{STATUS_PREFIX} #{message}"
+          STDOUT.puts "#{STATUS_PREFIX} #{message}"
         end
         nil
       end
@@ -47,7 +47,7 @@ module RGitFlow
       # @return [void]
       def debug(message = '')
         if Rake.verbose
-          $stderror.puts "#{DEBUG_PREFIX} #{message}"
+          STDERR.puts "#{DEBUG_PREFIX} #{message}"
         end
         nil
       end
@@ -56,7 +56,7 @@ module RGitFlow
       # @param [String] message message to print to the console
       # @return [void]
       def error(message = '')
-        $stderror.puts "#{ERROR_PREFIX} #{message}"
+        STDERR.puts "#{ERROR_PREFIX} #{message}"
         nil
       end
     end
