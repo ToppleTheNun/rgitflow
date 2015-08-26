@@ -30,4 +30,7 @@ require 'yard'
 YARD::Rake::YardocTask.new
 task :doc => [:yard]
 
-require "bundler/gem_tasks"
+require 'bundler/gem_tasks'
+
+require 'rgitflow'
+RGitFlow::Tasks::TaskHelper.new.install
