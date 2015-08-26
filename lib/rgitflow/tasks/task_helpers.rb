@@ -52,7 +52,7 @@ module RGitFlow
             abort
           end
 
-          branch = RGitFlow::Config
+          branch = RGitFlow::Config.options[:feature] % ENV['BRANCH']
 
           if @git.branches.local.select { |b| b.name == branch }
             error 'Cannot create a branch that already exists locally'
@@ -78,7 +78,7 @@ module RGitFlow
             abort
           end
 
-          branch = "feature/#{ENV['BRANCH']}"
+          branch = RGitFlow::Config.options[:feature] % ENV['BRANCH']
 
           if @git.branches.local.select { |b| b.name == branch }.length <= 0
             error 'Cannot finish a branch that does not exist locally'
