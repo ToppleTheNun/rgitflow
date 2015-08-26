@@ -37,4 +37,6 @@ module RGitFlow
       end
     end
   end
+
+  Config.options = DEFAULT_OPTIONS
 end
