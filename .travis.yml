@@ -1,4 +1,11 @@
 language: ruby
 rvm:
-  - 2.2.1
+- 2.2.1
 before_install: gem install bundler -v 1.10.6
+deploy:
+  provider: rubygems
+  api_key:
+    secure: nQUUd0plPSX2osSS7Z4Y+XefgF7n01jvwTJDcou97RRG4cyUUYo0rkXRHf7pZx8VTPQP+W+pM9HSP4lHFdcaTGWvP4BPRDc2VFEfu0o9eSse6RKoruqlRc1Wc5vAZVskR3lrOm6/zvYjFoPmruTSU3Zeoey54I+VERbThc7foQhCCKVbpoqRQ/XrpCwu5P9bf9yjIuC/f+z0jRZc51xG1e48M2s3Td3zvb4h8f7577CoUe3C+llQywGid7JvwF9XMXc2wdcV/Qr+Y4nsZ6I2LA/cZ/m2C9Z05MSc3/K6dtLJzzeCQoydA4NCgoTsBzNPwMS6KiokLEPpo6ufBY+CsgsyUJWf3rtRRYyJFxwHCBZaAMh00rLxbt5GXx3GvzVH7I6p1wlmFkfd19w5LUJGa1K9g6bMChC9VzWlXknfbk1958h/lex+KJ+SA2qJdDhHh3A4SIdJkdo71F4PSxTHbA4hCaOPxDDZcd02TUJGJUcS/BaNskoydSRYNDQ2WWGpPPp+KoMwIrIyft1A5zmK/JDTvR8kxDgtUPxXslGvVyJG/PrkmsmUobwiDXZuZv/vcW+YpxYS91rUQJJvMjTypNbe45Upgbx4miI1QyI2O0xtvNnH3C0AU1iN/35F6yrIzz37uUvYGZyRssadR3mim1V+sN/D6V1vWlZMJSI6e7E=
+  gem: rgitflow
+  on:
+    repo: Nunnery/rgitflow
