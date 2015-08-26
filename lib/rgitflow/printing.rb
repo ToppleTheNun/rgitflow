@@ -69,7 +69,7 @@ module RGitFlow
     # @return [void]
     def prompt(message = '')
       status message
-      STDOUT.puts "#{INPUT_PREFIX} "
+      STDOUT.puts "#{INPUT_PREFIX} ".chomp
       nil
     end
   end
