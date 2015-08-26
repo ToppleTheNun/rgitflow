@@ -77,15 +77,10 @@ module RGitFlow
         task 'rgitflow:feature:finish' => ['validate'] do
           status 'Finishing feature branch...'
 
-          if ENV['BRANCH'].blank?
-            error 'Cannot finish a branch with an empty name'
-            abort
-          end
+          branch = @git.current_branch
 
-          branch = RGitFlow::Config.options[:feature] % ENV['BRANCH']
-
-          if @git.branches.local.select { |b| b.name == branch } .length <= 0
-            error 'Cannot finish a branch that does not exist locally'
+          unless branch.start_with RGitFlow::Config.options[:feature]
+            error 'Cannot finish a feature branch unless you are in a feature branch'
             abort
           end
 
