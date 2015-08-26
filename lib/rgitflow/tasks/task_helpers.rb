@@ -120,7 +120,7 @@ module RGitFlow
       private
 
       def dirty?
-        @git.diff.size
+        @git.diff.size > 0
       end
 
       def print_status
