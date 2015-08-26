@@ -42,7 +42,7 @@ module RGitFlow
 
         # Creates an alias of validate to rgitflow:scm:status
         task 'validate' => ['rgitflow:scm:status']
-        
+
         desc 'Start a feature branch with its name specified by the environment variable BRANCH'
         task 'rgitflow:feature:start' => ['validate'] do
           status 'Starting feature branch...'
@@ -80,7 +80,7 @@ module RGitFlow
 
           branch = "feature/#{ENV['BRANCH']}"
 
-          if @git.branches.local.select{ |b| b.name == branch }.length <= 0
+          if @git.branches.local.select { |b| b.name == branch }.length <= 0
             error 'Cannot finish a branch that does not exist locally'
             abort
           end
@@ -125,7 +125,28 @@ module RGitFlow
       end
 
       def print_status
-        status @git.status.pretty.to_s
+        added = []
+        modified = []
+        deleted = []
+
+        @git.diff.each { |f|
+          if f.type == 'added'
+            added << f
+          elsif f.type == 'modified'
+            modified << f
+          elsif f.type == 'deleted'
+            deleted << f
+          end
+        }
+
+        debug 'added'
+        added.each { |f| debug "  #{ANSI::Constants::GREEN}#{ANSI::Constants::BRIGHT}#{f.path}" }
+
+        debug 'modified'
+        modified.each { |f| debug "  #{ANSI::Constants::YELLOW}#{ANSI::Constants::BRIGHT}#{f.path}" }
+
+        debug 'deleted'
+        deleted.each { |f| debug "  #{ANSI::Constants::RED}#{ANSI::Constants::BRIGHT}#{f.path}" }
       end
 
       def run(command, *arguments)
