@@ -47,24 +47,27 @@ module RGitFlow
         task 'rgitflow:feature:start' => ['validate'] do
           status 'Starting feature branch...'
 
-          if ENV['BRANCH'].blank?
-            error 'Cannot create a branch with an empty name'
-            abort
+          branch = nil
+
+          while branch.blank?
+            error 'Cannot create a branch with an empty name!'
+            prompt 'Please enter a name for your feature branch:'
+            branch = gets.chomp
           end
 
           branch = RGitFlow::Config.options[:feature] % ENV['BRANCH']
 
-          if @git.branches.local.select { |b| b.name == branch } .size > 0
+          if @git.is_local_branch? branch
             error 'Cannot create a branch that already exists locally'
             abort
           end
 
-          if @git.branches.remote.select { |b| b.name == branch } .size > 0
+          if @git.is_remote_branch? branch
             error 'Cannot create a branch that already exists remotely'
             abort
           end
 
-          @git.branch branch
+          @git.branch(branch).create
 
           status "Started feature branch #{branch}!"
         end
