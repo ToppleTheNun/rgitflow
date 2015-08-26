@@ -52,7 +52,7 @@ module RGitFlow
           while branch.blank?
             error 'Cannot create a branch with an empty name!'
             prompt 'Please enter a name for your feature branch:'
-            branch = gets.chomp
+            branch = STDIN.gets.chomp
           end
 
           branch = RGitFlow::Config.options[:feature] % ENV['BRANCH']
