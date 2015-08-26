@@ -68,6 +68,7 @@ module RGitFlow
           end
 
           @git.branch(branch).create
+          @git.branch(branch).checkout
 
           status "Started feature branch #{branch}!"
         end
