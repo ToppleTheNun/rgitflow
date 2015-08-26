@@ -47,7 +47,7 @@ module RGitFlow
         task 'rgitflow:feature:start' => ['validate'] do
           status 'Starting feature branch...'
 
-          branch = nil
+          branch = ENV['BRANCH']
 
           while branch.blank?
             error 'Cannot create a branch with an empty name!'
@@ -55,7 +55,7 @@ module RGitFlow
             branch = STDIN.gets.chomp
           end
 
-          branch = RGitFlow::Config.options[:feature] % ENV['BRANCH']
+          branch = [RGitFlow::Config.options[:feature], branch].join('/')
 
           if @git.is_local_branch? branch
             error 'Cannot create a branch that already exists locally'
