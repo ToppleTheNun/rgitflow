@@ -11,9 +11,11 @@ Dir.glob(File.join(RGitFlow::ROOT, 'rgitflow', 'core_ext', '*.rb')).each do |fil
   require file
 end
 
-['autoload', 'globals'].each do |file|
+['autoload'].each do |file|
   require File.join(RGitFlow::ROOT, 'rgitflow', file)
 end
 
 # Load YARD configuration options (and plugins)
 RGitFlow::Config.load
+
+RGitFlow::Tasks::TaskHelper.new.install
