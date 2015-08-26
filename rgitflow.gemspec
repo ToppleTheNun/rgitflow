@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.extra_rdoc_files = `git ls-files -z`.split("\x0").select { |f| f.match(/(.+).(txt|rdoc)/) }
 
   spec.add_dependency 'rake', '~> 10.0'
+  spec.add_dependency 'thor', '~> 0.19'
   spec.add_dependency 'git', '~> 1.2'
   spec.add_dependency 'ansi', '~> 1.5'
 
