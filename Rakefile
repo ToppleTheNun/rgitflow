@@ -33,4 +33,3 @@ task :doc => [:yard]
 require 'bundler/gem_tasks'
 
 require 'rgitflow'
-RGitFlow::Tasks::TaskHelper.new.install
