@@ -79,7 +79,7 @@ module RGitFlow
 
           branch = @git.current_branch
 
-          unless branch.start_with RGitFlow::Config.options[:feature]
+          unless branch.start_with? RGitFlow::Config.options[:feature]
             error 'Cannot finish a feature branch unless you are in a feature branch'
             abort
           end
