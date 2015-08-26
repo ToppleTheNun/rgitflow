@@ -28,6 +28,12 @@ module RGitFlow
                      '>>>'
                    end
 
+    INPUT_PREFIX = if $stderr.tty?
+                     "#{ANSI::Constants::BLUE}#{ANSI::Constants::BRIGHT}<<<#{ANSI::Constants::CLEAR}"
+                   else
+                     '<<<'
+                   end
+
     protected
 
     # Prints a status message to the console
@@ -55,6 +61,15 @@ module RGitFlow
     # @return [void]
     def error(message = '')
       STDERR.puts "#{ERROR_PREFIX} #{message}"
+      nil
+    end
+
+    # Prints a prompt message to the console
+    # @param [String] message message to print to the console
+    # @return [void]
+    def prompt(message = '')
+      status message
+      STDOUT.puts "#{INPUT_PREFIX} "
       nil
     end
   end
