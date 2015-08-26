@@ -1,5 +1,4 @@
 require 'rgitflow/version'
-require 'rgitflow/tasks/task_helpers'
 
 module RGitFlow
   # The root path for RGitFlow source libraries
@@ -23,4 +22,4 @@ end
 # Load YARD configuration options (and plugins)
 RGitFlow::Config.load
 
-RGitFlow::Tasks::TaskHelper.new.install
+RGitFlow::Install.install_tasks
