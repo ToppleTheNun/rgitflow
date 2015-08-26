@@ -89,7 +89,7 @@ module RGitFlow
           @git.branch(branch).delete
 
           if @git.is_remote_branch? branch
-            @git.branches.remote[branch].delete
+            @git.branch("origin/#{branch}").delete
           end
           @git.push
 
