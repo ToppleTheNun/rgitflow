@@ -1,11 +1,10 @@
-require 'rgitflow/tasks/printing'
-
+require 'rgitflow/printing'
 require 'git'
 
 module RGitFlow
   module Tasks
     class TaskHelper
-      include Printing
+      include RGitFlow::Printing
       include Rake::DSL if defined? Rake::DSL
 
       class << self
@@ -53,7 +52,7 @@ module RGitFlow
             abort
           end
 
-          branch = "feature/#{ENV['BRANCH']}"
+          branch = RGitFlow::Config
 
           if @git.branches.local.select { |b| b.name == branch }
             error 'Cannot create a branch that already exists locally'
