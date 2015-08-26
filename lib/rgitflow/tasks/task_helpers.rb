@@ -115,6 +115,8 @@ module RGitFlow
         task 'rgitflow:hotfix:finish' => ['validate'] do
 
         end
+
+        TaskHelper.instance = self
       end
 
       private
