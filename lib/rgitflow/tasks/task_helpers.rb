@@ -91,6 +91,13 @@ module RGitFlow
           end
           @git.branch(branch).delete
 
+          for remote in @git.remotes
+            unless remote.branch(branch).nil?
+              debug "Deleting branch #{branch} on remote #{remote.name}"
+              remote.branch(branch).delete
+            end
+          end
+
           @git.push
 
           status "Finished feature branch #{branch}!"
