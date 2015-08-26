@@ -11,9 +11,9 @@ module RGitFlow
     DEFAULT_OPTIONS = {
         :master => 'master',
         :develop => 'develop',
-        :feature => 'feature/%s',
-        :hotfix => 'hotfix/%s',
-        :release => 'release/%s'
+        :feature => 'feature',
+        :hotfix => 'hotfix',
+        :release => 'release'
     }
 
     def self.load
