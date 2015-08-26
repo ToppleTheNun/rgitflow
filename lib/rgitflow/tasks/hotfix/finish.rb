@@ -2,7 +2,7 @@ require 'rgitflow/tasks/task'
 
 module RGitFlow
   module Tasks
-    class Feature
+    class Hotfix
       class Finish < RGitFlow::Tasks::Task
         def initialize(git)
           super(git, 'finish', 'Finish a hotfix branch', ['rgitflow', 'hotfix'])
