@@ -68,7 +68,8 @@ module RGitFlow
     # @param [String] message message to print to the console
     # @return [void]
     def prompt(message = '')
-      status [message, "#{INPUT_PREFIX} "].join("\n")
+      status message
+      STDOUT.print "#{INPUT_PREFIX} "
       nil
     end
   end
