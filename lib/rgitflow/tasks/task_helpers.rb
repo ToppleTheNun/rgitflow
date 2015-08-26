@@ -86,11 +86,11 @@ module RGitFlow
 
           @git.branch('master').checkout
           @git.merge branch
+          unless @git.branch(branch).remote.nil?
+            @git.branch(branch).remote.branch(branch).delete
+          end
           @git.branch(branch).delete
 
-          if @git.is_remote_branch? branch
-            @git.branch("origin/#{branch}").delete
-          end
           @git.push
 
           status "Finished feature branch #{branch}!"
