@@ -1,5 +1,3 @@
-require 'rgitflow/printing'
-
 require 'rake'
 require 'rake/tasklib'
 
@@ -7,6 +5,7 @@ module RGitFlow
   module Tasks
     class Task < ::Rake::TaskLib
       include RGitFlow::Printing
+      include RGitFlow::Console
       # The namespaces of the task
       # @return [Array<String>] the task namespaces
       attr_accessor :namespaces
