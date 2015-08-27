@@ -21,7 +21,7 @@ module RGitFlow
           end
 
           @git.branch(RGitFlow::Config.options[:develop]).checkout
-          @git.merge branch
+          @git.merge branch, "merging #{branch} into #{RGitFlow::Config.options[:develop]}"
 
           @git.push
           if @git.is_remote_branch? branch
