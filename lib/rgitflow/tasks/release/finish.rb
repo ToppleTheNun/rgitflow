@@ -5,7 +5,8 @@ module RGitFlow
     class Release
       class Finish < RGitFlow::Tasks::Task
         def initialize(git)
-          super(git, 'finish', 'Finish a release branch', ['rgitflow', 'release'], ['install'])
+          super(git, 'finish', 'Finish a release branch',
+                ['rgitflow', 'release'], ['install'])
         end
 
         protected
@@ -16,16 +17,19 @@ module RGitFlow
           branch = @git.current_branch
 
           unless branch.start_with? RGitFlow::Config.options[:release]
-            error 'Cannot finish a release branch unless you are in a release branch'
+            error %Q(Cannot finish a release branch unless you are in a release
+                     branch)
             abort
           end
 
+          msg = %Q(merging #{branch} into #{RGitFlow::Config.options[:master]})
+
           @git.branch(RGitFlow::Config.options[:master]).checkout
-          @git.merge branch, "merging #{branch} into #{RGitFlow::Config.options[:master]}"
+          @git.merge branch, msg
 
           @git.push
           if @git.is_remote_branch? branch
-            @git.push('origin', branch, {:delete => true})
+            @git.push('origin', branch, { :delete => true })
           end
 
           @git.branch(branch).delete
