@@ -26,6 +26,13 @@ RSpec::Core::RakeTask.new
 task :test    => [:spec]
 task :default => [:spec]
 
+desc 'Removes the tmp and pkg directories'
+task :clean do
+  pwd = Dir.pwd.to_s
+  FileUtils.rm_rf Dir["#{pwd}/tmp"]
+  FileUtils.rm_rf Dir["#{pwd}/pkg"]
+end
+
 require 'yard'
 YARD::Rake::YardocTask.new
 task :doc => [:yard]
