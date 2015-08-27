@@ -28,6 +28,7 @@ module RGitFlow
           @git.merge branch, msg
 
           @git.push
+          # force re-creation of develop branch
           if @git.is_remote_branch? branch
             @git.push('origin', branch, { :delete => true })
           end
