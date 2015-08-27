@@ -24,7 +24,9 @@ module RGitFlow
           @git.merge branch
 
           @git.push
-          @git.push('origin', branch, {:delete => true})
+          if @git.is_remote_branch? branch
+            @git.push('origin', branch, {:delete => true})
+          end
 
           @git.branch(branch).delete
 
