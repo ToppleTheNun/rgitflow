@@ -5,7 +5,7 @@ module RGitFlow
 
     protected
 
-    def run(command, *arguments)
+    def execute(command, *arguments)
       show_command = [command, *arguments].join ' '
 
       if respond_to? 'debug'
