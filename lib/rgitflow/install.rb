@@ -16,7 +16,7 @@ module RGitFlow
     attr_reader :dir, :git
 
     def initialize(dir = nil)
-      @dir = dir || Pathname.pwd
+      @dir = dir || Dir.pwd
       @git = Git.open @dir
     end
 
