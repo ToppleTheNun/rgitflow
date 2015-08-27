@@ -13,7 +13,8 @@ module RGitFlow
         :develop => 'develop',
         :feature => 'feature',
         :hotfix => 'hotfix',
-        :release => 'release'
+        :release => 'release',
+        :tag => 'v%s'
     }
 
     def self.load
