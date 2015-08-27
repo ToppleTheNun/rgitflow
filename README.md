@@ -29,12 +29,19 @@ TODO: Write usage instructions here
 
 ## Development
 
-TODO: Write development instructions here
+After checking out the repo, run `bin/setup` to install dependencies and
+regenerate the binstubs as necessary.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/Nunnery/rgitflow. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on [GitHub].
+This project is intended to be a safe, welcoming space for collaboration, and
+ contributors are expected to adhere to the [Code of Conduct].
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [MIT License].
+
+[GitHub]: https://github.com/Nunnery/rgitflow
+[Code of Conduct]: http://contributor-covenant.org
+[MIT License]: http://opensource.org/licenses/MIT
