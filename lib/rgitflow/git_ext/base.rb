@@ -2,7 +2,7 @@ require 'git/base'
 
 Git::Base.class_eval do
   def dirty?
-    dirt = diff.diff_shortstat.to_s.strip
+    dirt = diff.diff_shortstat.to_s.strip.chomp
     if dirt.blank?
       true
     end
