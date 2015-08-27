@@ -2,7 +2,7 @@ require 'rgitflow/tasks/task'
 
 module RGitFlow
   module Tasks
-    module SCM
+    class SCM
       class Tag < RGitFlow::Tasks::Task
         def initialize(git)
           super(git, 'tag', 'Tags the repository',

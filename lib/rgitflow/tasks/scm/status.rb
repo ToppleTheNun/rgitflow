@@ -2,7 +2,7 @@ require 'rgitflow/tasks/task'
 
 module RGitFlow
   module Tasks
-    module SCM
+    class SCM
       class Status < RGitFlow::Tasks::Task
         def initialize(git)
           super(git, 'status', 'Check the status of the repository', ['rgitflow', 'scm'])
