@@ -27,6 +27,8 @@ module RGitFlow
           @git.branch(RGitFlow::Config.options[:master]).checkout
           @git.merge branch, msg
 
+          invoke 'rgitflow:scm:tag'
+
           @git.push
           # force re-creation of develop branch
           if @git.is_remote_branch? branch
