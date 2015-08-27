@@ -18,15 +18,7 @@ module RGitFlow
             abort
           end
 
-          branch = ENV['BRANCH']
-
-          while branch.blank?
-            error 'Cannot create a branch with an empty name!'
-            prompt 'Please enter a name for your release branch:'
-            branch = STDIN.gets.chomp
-          end
-
-          branch = [RGitFlow::Config.options[:release], branch].join('/')
+          branch = [RGitFlow::Config.options[:release], RGitFlow::VERSION.to_s].join('/')
 
           if @git.is_local_branch? branch
             error 'Cannot create a branch that already exists locally'
