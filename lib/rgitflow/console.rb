@@ -8,12 +8,12 @@ module RGitFlow
     def run(command, *arguments)
       show_command = [command, *arguments].join ' '
 
-      if respond_to? debug
+      if respond_to? 'debug'
         debug show_command
       end
 
       unless system(command, *arguments)
-        if respond_to? error
+        if respond_to? 'error'
           error "Command failed: #{show_command}"
         end
         abort
