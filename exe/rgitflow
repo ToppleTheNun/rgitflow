@@ -4,42 +4,56 @@ require 'rgitflow'
 
 module RGitFlowCLI
   class Feature < Thor
+    include ::RGitFlow::Console
+
     desc 'start <name>', 'starts a feature branch named <name>'
     def start(name)
-      exec "bundle exec rake rgitflow:feature:start BRANCH=#{name}"
+      run 'bundle', 'exec', 'rake', 'rgitflow:feature:start', "BRANCH=#{name}"
     end
 
     desc 'finish', 'finishes a feature branch'
     def finish
-      exec "bundle exec rake rgitflow:feature:finish"
+      run 'bundle', 'exec', 'rake', 'rgitflow:feature:finish'
     end
   end
 
   class Release < Thor
-    desc 'start <name>', 'starts a release branch named <name>'
-    def start(name)
-      exec "bundle exec rake rgitflow:release:start BRANCH=#{name}"
+    include ::RGitFlow::Console
+
+    desc 'start', %Q(starts a release branch named
+                    #{RGitFlow::Config.options[:release]}/#{RGitFlow::VERSION.to_s})
+    def start
+      run 'bundle', 'exec', 'rake', 'rgitflow:release:start'
     end
 
     desc 'finish', 'finishes a release branch'
     def finish
-      exec "bundle exec rake rgitflow:release:finish"
+      run 'bundle', 'exec', 'rake', 'rgitflow:release:finish'
     end
   end
 
   class Hotfix < Thor
+    include ::RGitFlow::Console
+
     desc 'start <name>', 'starts a hotfix branch named <name>'
     def start(name)
-      exec "bundle exec rake rgitflow:hotfix:start BRANCH=#{name}"
+      run 'bundle', 'exec', 'rake', 'rgitflow:hotfix:start', "BRANCH=#{name}"
     end
 
     desc 'finish', 'finishes a hotfix branch'
     def finish
-      exec "bundle exec rake rgitflow:hotfix:finish"
+      run 'bundle', 'exec', 'rake', 'rgitflow:hotfix:finish'
     end
   end
 
   class RGitFlow < Thor
+    include ::RGitFlow::Console
+
+    desc 'status', 'prints out information about which files have changed'
+    def status
+      run 'bundle', 'exec', 'rake', 'rgitflow:scm:status'
+    end
+
     desc 'feature SUBCOMMAND ...ARGS', 'start or finish a feature branch'
     subcommand 'feature', Feature
 
