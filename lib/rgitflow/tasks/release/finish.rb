@@ -30,6 +30,8 @@ module RGitFlow
 
           @git.branch(branch).delete
 
+          @git.branch(RGitFlow::Config.options[:develop]).checkout
+
           status "Finished release branch #{branch}!"
         end
       end
