@@ -13,6 +13,11 @@ module RGitFlow
         def run
           status 'Starting feature branch...'
 
+          unless @git.current_branch == RGitFlow::Config.options[:develop]
+            error 'Cannot create feature branch unless on development branch'
+            abort
+          end
+
           branch = ENV['BRANCH']
 
           while branch.blank?
