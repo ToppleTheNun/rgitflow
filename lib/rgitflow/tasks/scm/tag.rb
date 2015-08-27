@@ -22,7 +22,8 @@ module RGitFlow
           else
             status 'There are no uncommitted changes in the repository.'
           end
-          tag = ENV['TAG'] || "v#{RGitFlow::VERSION.to_s}"
+          tag = ENV['TAG'] || ("#{RGitFlow::Config.options[:tag]}" %
+              RGitFlow::VERSION.to_s)
           unless @git.tags.select { |t| t.name == tag }.length == 0
             error 'Cannot create a tag that already exists!'
             abort
