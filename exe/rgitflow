@@ -12,8 +12,8 @@ module RGitFlowCLI
     end
 
     desc 'finish', 'finishes a feature branch'
-    def finish
-      run 'bundle', 'exec', 'rake', 'rgitflow:feature:finish'
+    def finish(name)
+      run 'bundle', 'exec', 'rake', 'rgitflow:feature:finish', "BRANCH=#{name}"
     end
   end
 
@@ -22,13 +22,13 @@ module RGitFlowCLI
 
     desc 'start', %Q(starts a release branch named
                     #{RGitFlow::Config.options[:release]}/#{RGitFlow::VERSION.to_s})
-    def start
-      run 'bundle', 'exec', 'rake', 'rgitflow:release:start'
+    def start(name)
+      run 'bundle', 'exec', 'rake', 'rgitflow:release:start', "BRANCH=#{name}"
     end
 
     desc 'finish', 'finishes a release branch'
-    def finish
-      run 'bundle', 'exec', 'rake', 'rgitflow:release:finish'
+    def finish(name)
+      run 'bundle', 'exec', 'rake', 'rgitflow:release:finish', "BRANCH=#{name}"
     end
   end
 
@@ -41,8 +41,8 @@ module RGitFlowCLI
     end
 
     desc 'finish', 'finishes a hotfix branch'
-    def finish
-      run 'bundle', 'exec', 'rake', 'rgitflow:hotfix:finish'
+    def finish(name)
+      run 'bundle', 'exec', 'rake', 'rgitflow:hotfix:finish', "BRANCH=#{name}"
     end
   end
 
