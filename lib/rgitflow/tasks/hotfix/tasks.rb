@@ -15,7 +15,7 @@ module RGitFlow
       attr_reader :git
 
       def initialize(git = nil)
-        @git = git || Git.open(Pathname.pwd)
+        @git = git || Git.open(Dir.pwd)
       end
 
       def install
