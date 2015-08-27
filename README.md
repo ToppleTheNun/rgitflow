@@ -1,6 +1,11 @@
 # RGitFlow
 
-A collection of Rake tasks intended to emulate Git Flow in a Ruby context.
+[![Code Climate](https://img.shields.io/codeclimate/github/Nunnery/rgitflow.svg?style=flat-square)](https://codeclimate.com/github/Nunnery/rgitflow)
+[![Test Coverage](https://img.shields.io/codeclimate/coverage/github/Nunnery/rgitflow.svg?style=flat-square)](https://codeclimate.com/github/Nunnery/rgitflow/coverage)
+[![Build Status](https://img.shields.io/travis/Nunnery/rgitflow.svg?style=flat-square)](https://travis-ci.org/Nunnery/rgitflow)
+[![Dependency Status](https://img.shields.io/gemnasium/Nunnery/rgitflow.svg?style=flat-square)](https://gemnasium.com/Nunnery/rgitflow)
+[![Gem Version](https://img.shields.io/gem/v/rgitflow.svg?style=flat-square)](https://rubygems.org/gems/rgitflow)
+[![Docs Coverage](http://inch-ci.org/github/Nunnery/rgitflow.svg?branch=master&style=flat-square)](http://inch-ci.org/github/Nunnery/rgitflow)
 
 ## Installation
 
@@ -33,4 +38,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/Nunner
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-

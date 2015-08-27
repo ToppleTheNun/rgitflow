@@ -1,0 +1,30 @@
+= rgitflow
+
+{<img src="https://img.shields.io/codeclimate/github/Nunnery/rgitflow.svg?style=flat-square" alt="Code Climate" />}[https://codeclimate.com/github/Nunnery/rgitflow]
+{<img src="https://img.shields.io/codeclimate/coverage/github/Nunnery/rgitflow.svg?style=flat-square" alt="Code Coverage" />}[https://codeclimate.com/github/Nunnery/rgitflow/coverage]
+{<img src="https://img.shields.io/travis/Nunnery/rgitflow.svg?style=flat-square" alt="Build Status" />}[https://travis-ci.org/Nunnery/rgitflow]
+{<img src="https://img.shields.io/gemnasium/Nunnery/rgitflow.svg?style=flat-square" alt="Dependency Status" />}[https://gemnasium.com/Nunnery/rgitflow]
+{<img src="https://img.shields.io/gem/v/rgitflow.svg?style=flat-square" alt="RubyGems" />}[https://rubygems.org/gems/rgitflow]
+{<img src="http://inch-ci.org/github/Nunnery/rgitflow.svg?branch=master&style=flat-square" alt="Doc Coverage" />}[http://inch-ci.org/github/Nunnery/rgitflow]
+
+== Description
+
+TODO: Description
+
+== Features
+
+== Examples
+
+  require 'rgitflow'
+
+== Requirements
+
+== Install
+
+  $ gem install rgitflow
+
+== Copyright
+
+Copyright (c) 2015 Richard Harrah
+
+See LICENSE.txt for details.
