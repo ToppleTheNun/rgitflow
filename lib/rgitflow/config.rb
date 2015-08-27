@@ -4,7 +4,7 @@ module RGitFlow
       attr_accessor :options
     end
 
-    CONFIG_DIR = Pathname.pwd
+    CONFIG_DIR = Dir.pwd
 
     CONFIG_FILE = File.expand_path(CONFIG_DIR, '.rgitflow')
 
