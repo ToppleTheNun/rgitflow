@@ -31,7 +31,8 @@ module RGitFlow
       # @return [Proc] a proc to call after running the task
       attr_accessor :after
 
-      def initialize(git, name, description, namespaces = ['rgitflow'], dependencies = [])
+      def initialize(git, name, description, namespaces = ['rgitflow'],
+                     dependencies = [])
         @git = git
         @name = name
         @description = description
