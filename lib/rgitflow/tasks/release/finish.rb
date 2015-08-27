@@ -5,7 +5,7 @@ module RGitFlow
     class Release
       class Finish < RGitFlow::Tasks::Task
         def initialize(git)
-          super(git, 'finish', 'Finish a release branch', ['rgitflow', 'release'])
+          super(git, 'finish', 'Finish a release branch', ['rgitflow', 'release'], ['install'])
         end
 
         protected
