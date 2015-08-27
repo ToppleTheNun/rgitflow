@@ -21,17 +21,17 @@ module RGitFlow
     end
 
     def install
-      require 'rgitflow/tasks/scm/status'
-      RGitFlow::Tasks::SCM::Status.new @git
+      require 'rgitflow/tasks/scm/tasks'
+      RGitFlow::Tasks::SCM.install_tasks :git => @git
 
       require 'rgitflow/tasks/feature/tasks'
-      RGitFlow::Tasks::Feature.install_tasks({:git => @git})
+      RGitFlow::Tasks::Feature.install_tasks :git => @git
 
       require 'rgitflow/tasks/hotfix/tasks'
-      RGitFlow::Tasks::Hotfix.install_tasks({:git => @git})
+      RGitFlow::Tasks::Hotfix.install_tasks :git => @git
 
       require 'rgitflow/tasks/release/tasks'
-      RGitFlow::Tasks::Release.install_tasks({:git => @git})
+      RGitFlow::Tasks::Release.install_tasks :git => @git
     end
   end
 end
