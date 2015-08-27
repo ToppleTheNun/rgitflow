@@ -1,0 +1,55 @@
+#!/usr/bin/env ruby
+require 'thor'
+require 'rake'
+require 'rgitflow'
+
+module RGitFlowCLI
+  class Feature < Thor
+    desc 'start <name>', 'starts a feature branch named <name>'
+    def start(name)
+      exec "bundle exec rake rgitflow:feature:start BRANCH=#{name}"
+    end
+
+    desc 'finish', 'finishes a feature branch'
+    def finish
+      exec "bundle exec rake rgitflow:feature:finish"
+    end
+  end
+
+  class Release < Thor
+    desc 'start <name>', 'starts a release branch named <name>'
+    def start(name)
+      exec "bundle exec rake rgitflow:release:start BRANCH=#{name}"
+    end
+
+    desc 'finish', 'finishes a release branch'
+    def finish
+      exec "bundle exec rake rgitflow:release:finish"
+    end
+  end
+
+  class Hotfix < Thor
+    desc 'start <name>', 'starts a hotfix branch named <name>'
+    def start(name)
+      exec "bundle exec rake rgitflow:hotfix:start BRANCH=#{name}"
+    end
+
+    desc 'finish', 'finishes a hotfix branch'
+    def finish
+      exec "bundle exec rake rgitflow:hotfix:finish"
+    end
+  end
+
+  class RGitFlow < Thor
+    desc 'feature SUBCOMMAND ...ARGS', 'start or finish a feature branch'
+    subcommand 'feature', Feature
+
+    desc 'release SUBCOMMAND ...ARGS', 'start or finish a release branch'
+    subcommand 'release', Release
+
+    desc 'hotfix SUBCOMMAND ...ARGS', 'start or finish a hotfix branch'
+    subcommand 'hotfix', Hotfix
+  end
+end
+
+RGitFlowCLI::RGitFlow.start ARGV
