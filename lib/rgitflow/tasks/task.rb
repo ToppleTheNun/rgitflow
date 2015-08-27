@@ -19,6 +19,10 @@ module RGitFlow
       # @return [String] the task description
       attr_accessor :description
 
+      # The dependencies of the task
+      # @return [Array<String>] the dependencies of the task
+      attr_accessor :dependencies
+
       # Runs a +Proc+ before the task
       # @return [Proc] a proc to call before running the task
       attr_accessor :before
@@ -27,11 +31,12 @@ module RGitFlow
       # @return [Proc] a proc to call after running the task
       attr_accessor :after
 
-      def initialize(git, name, description, namespaces = ['rgitflow'])
+      def initialize(git, name, description, namespaces = ['rgitflow'], dependencies = [])
         @git = git
         @name = name
         @description = description
         @namespaces = namespaces
+        @dependencies = dependencies
 
         yield self if block_given?
 
@@ -41,8 +46,10 @@ module RGitFlow
       protected
 
       def define
+        full_name = [*@namespaces, @name].join(":")
+
         desc @description unless ::Rake.application.last_comment
-        task([*@namespaces, @name].join(":")) do
+        task full_name => @dependencies do
           before.call if before.is_a?(Proc)
           run
           after.call if after.is_a?(Proc)
