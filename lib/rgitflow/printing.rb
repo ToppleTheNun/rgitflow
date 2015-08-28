@@ -34,10 +34,6 @@ module RGitFlow
                      '<<<'
                    end
 
-    def self.included(base)
-      base.extend Printing
-    end
-
     protected
 
     # Prints a status message to the console
