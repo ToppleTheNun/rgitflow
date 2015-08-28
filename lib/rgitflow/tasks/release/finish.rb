@@ -34,7 +34,8 @@ module RGitFlow
 
           @git.branch(RGitFlow::Config.options[:master]).checkout
           @git.merge branch
-          @git.commit_all(msg)
+
+          @git.commit_all msg
 
           invoke 'rgitflow:scm:tag'
 

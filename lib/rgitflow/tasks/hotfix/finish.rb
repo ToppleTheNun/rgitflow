@@ -24,7 +24,7 @@ module RGitFlow
                                                  .options[:master]}")
 
           @git.branch(RGitFlow::Config.options[:master]).checkout
-          @git.merge branch,
+          @git.merge branch
 
           @git.commit_all msg
 
