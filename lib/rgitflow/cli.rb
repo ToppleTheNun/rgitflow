@@ -2,13 +2,11 @@ require 'rgitflow/console'
 require 'rgitflow/printing'
 
 module RGitFlow
-  module CLI
+  class CLI
     include ::RGitFlow::Printing
     include ::RGitFlow::Console
 
     class << self
-      attr_accessor :instance
-
       def execute(command, *arguments)
         new.execute command, arguments
       end
