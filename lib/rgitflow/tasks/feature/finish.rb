@@ -25,11 +25,15 @@ module RGitFlow
           @git.branch(RGitFlow::Config.options[:develop]).checkout
           @git.merge branch
 
-          @git.commit_all msg
+          begin
+            @git.commit_all msg
+          rescue
+            status 'develop branch is up-to-date'
+          end
 
           @git.push
           if @git.is_remote_branch? branch
-            @git.push('origin', branch, {:delete => true})
+            @git.push('origin', branch, { :delete => true })
           end
 
           @git.branch(branch).delete

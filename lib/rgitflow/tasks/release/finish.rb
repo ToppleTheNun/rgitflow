@@ -26,7 +26,12 @@ module RGitFlow
 
           @git.branch(RGitFlow::Config.options[:develop]).checkout
           @git.merge branch
-          @git.commit_all(msg)
+
+          begin
+            @git.commit_all msg
+          rescue
+            status 'develop branch is up-to-date'
+          end
 
           @git.push
 
@@ -35,7 +40,11 @@ module RGitFlow
           @git.branch(RGitFlow::Config.options[:master]).checkout
           @git.merge branch
 
-          @git.commit_all msg
+          begin
+            @git.commit_all msg
+          rescue
+            status 'master branch is up-to-date'
+          end
 
           invoke 'rgitflow:scm:tag'
 
