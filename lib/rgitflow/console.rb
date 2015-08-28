@@ -3,6 +3,10 @@ require 'rake'
 module RGitFlow
   module Console
 
+    def included(base)
+      base.extend Console
+    end
+
     protected
 
     def execute(command, *arguments)
