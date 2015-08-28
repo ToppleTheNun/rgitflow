@@ -11,8 +11,8 @@ command :'release start' do |c|
   c.syntax      = 'rgitflow release start'
   c.description = 'Starts a release branch'
   c.action do |args, options|
-    RGitFlow::CLI.execute 'bundle', 'exec', 'rake',
-                          'rgitflow:release:start'
+    RGitFlow::CLI.commandline ['bundle', 'exec', 'rake',
+                               'rgitflow:release:start'].join(' ')
   end
 end
 
@@ -20,8 +20,8 @@ command :'release finish' do |c|
   c.syntax      = 'rgitflow release finish'
   c.description = 'Finishes a release branch'
   c.action do |args, options|
-    RGitFlow::CLI.execute 'bundle', 'exec', 'rake',
-                          'rgitflow:release:finish'
+    RGitFlow::CLI.commandline ['bundle', 'exec', 'rake',
+                               'rgitflow:release:finish'].join(' ')
   end
 end
 
@@ -30,12 +30,12 @@ command :'hotfix start' do |c|
   c.description = 'Starts a hotfix branch'
   c.action do |args, options|
     if args.length == 0
-      RGitFlow::CLI.execute 'bundle', 'exec', 'rake',
-                            'rgitflow:hotfix:start'
+      RGitFlow::CLI.commandline ['bundle', 'exec', 'rake',
+                                 'rgitflow:hotfix:start'].join(' ')
     else
-      RGitFlow::CLI.execute 'bundle', 'exec', 'rake',
-                            'rgitflow:hotfix:start',
-                            "BRANCH=#{args[0]}"
+      RGitFlow::CLI.commandline ['bundle', 'exec', 'rake',
+                                 'rgitflow:hotfix:start',
+                                 "BRANCH=#{args[0]}"].join(' ')
     end
   end
 end
@@ -44,8 +44,8 @@ command :'hotfix finish' do |c|
   c.syntax      = 'rgitflow hotfix finish'
   c.description = 'Finishes a hotfix branch'
   c.action do |args, options|
-    RGitFlow::CLI.execute 'bundle', 'exec', 'rake',
-                          'rgitflow:hotfix:finish'
+    RGitFlow::CLI.commandline ['bundle', 'exec', 'rake',
+                               'rgitflow:hotfix:finish'].join(' ')
   end
 end
 
@@ -54,12 +54,12 @@ command :'feature start' do |c|
   c.description = 'Starts a feature branch'
   c.action do |args, options|
     if args.length == 0
-      RGitFlow::CLI.execute 'bundle', 'exec', 'rake',
-                            'rgitflow:feature:start'
+      RGitFlow::CLI.commandline ['bundle', 'exec', 'rake',
+                                 'rgitflow:feature:start'].join(' ')
     else
-      RGitFlow::CLI.execute 'bundle', 'exec', 'rake',
-                            'rgitflow:feature:start',
-                            "BRANCH=#{args[0]}"
+      RGitFlow::CLI.commandline ['bundle', 'exec', 'rake',
+                                 'rgitflow:feature:start',
+                                 "BRANCH=#{args[0]}"].join(' ')
     end
   end
 end
@@ -68,8 +68,8 @@ command :'feature finish' do |c|
   c.syntax      = 'rgitflow feature finish'
   c.description = 'Finishes a feature branch'
   c.action do |args, options|
-    RGitFlow::CLI.execute 'bundle', 'exec', 'rake',
-                          'rgitflow:feature:finish'
+    RGitFlow::CLI.commandline ['bundle', 'exec', 'rake',
+                               'rgitflow:feature:finish'].join(' ')
   end
 end
 
