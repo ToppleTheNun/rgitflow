@@ -6,7 +6,6 @@ require 'rgitflow/version'
 Gem::Specification.new do |spec|
   spec.name          = "rgitflow"
   spec.version       = RGitFlow::VERSION
-  spec.version = "#{spec.version}-alpha-#{ENV['TRAVIS_BUILD_NUMBER']}" if !ENV['TRAVIS_BRANCH'].nil? and ENV['TRAVIS_BRANCH'] != 'master'
   spec.authors       = ["Richard Harrah"]
   spec.email         = ["topplethenunnery@gmail.com"]
 
