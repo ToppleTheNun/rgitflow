@@ -22,6 +22,11 @@ module RGitFlow
             abort
           end
 
+          msg = %Q(merging #{branch} into #{RGitFlow::Config.options[:develop]})
+
+          @git.branch(RGitFlow::Config.options[:develop]).checkout
+          @git.merge branch, msg
+
           msg = %Q(merging #{branch} into #{RGitFlow::Config.options[:master]})
 
           @git.branch(RGitFlow::Config.options[:master]).checkout
