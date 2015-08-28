@@ -5,16 +5,14 @@ module RGitFlow
 
     protected
 
-    def execute(command, *arguments)
-      show_command = [command, *arguments].join ' '
-
+    def execute(command)
       if respond_to? 'debug'
-        debug show_command
+        debug command.to_s
       end
 
-      unless system(command, *arguments)
+      unless system(command.to_s)
         if respond_to? 'error'
-          error "Command failed: #{show_command}"
+          error "Command failed: #{command.to_s}"
         end
         abort
       end
