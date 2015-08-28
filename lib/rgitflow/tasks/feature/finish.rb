@@ -20,8 +20,12 @@ module RGitFlow
             abort
           end
 
+          msg = %Q("merging #{branch} into #{RGitFlow::Config.options[:develop]}")
+
           @git.branch(RGitFlow::Config.options[:develop]).checkout
-          @git.merge branch, "merging #{branch} into #{RGitFlow::Config.options[:develop]}"
+          @git.merge branch
+
+          @git.commit_all msg
 
           @git.push
           if @git.is_remote_branch? branch
