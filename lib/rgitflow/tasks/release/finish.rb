@@ -25,12 +25,16 @@ module RGitFlow
           msg = %Q(merging #{branch} into #{RGitFlow::Config.options[:develop]})
 
           @git.branch(RGitFlow::Config.options[:develop]).checkout
-          @git.merge branch, msg
+          @git.merge branch
+          @git.commit_all(msg)
+
+          @git.push
 
           msg = %Q(merging #{branch} into #{RGitFlow::Config.options[:master]})
 
           @git.branch(RGitFlow::Config.options[:master]).checkout
-          @git.merge branch, msg
+          @git.merge branch
+          @git.commit_all(msg)
 
           invoke 'rgitflow:scm:tag'
 
