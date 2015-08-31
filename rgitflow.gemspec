@@ -29,5 +29,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.3'
   spec.add_development_dependency 'yard', '~> 0.8'
   spec.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
-  spec.add_development_dependency 'rubygems-bundler', '~> 1.4'
 end
